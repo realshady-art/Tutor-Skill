@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutor-Skill Promo</title>
+  <style>
+    :root {
+      --bg: #f8f1ea;
+      --paper: #fffaf5;
+      --card: rgba(255, 252, 247, 0.86);
+      --ink: #221b16;
+      --muted: #6f625a;
+      --line: rgba(34, 27, 22, 0.08);
+      --accent: #ff5d4d;
+      --accent-soft: #ffd8d3;
+      --gold: #d4934d;
+      --shadow: 0 28px 80px rgba(70, 42, 26, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 93, 77, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(212, 147, 77, 0.12), transparent 26%),
+        linear-gradient(180deg, #fff7f1 0%, var(--bg) 46%, #f2e8de 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(0deg, transparent 24%, rgba(34, 27, 22, 0.15) 25%, transparent 26%),
+        linear-gradient(90deg, transparent 24%, rgba(34, 27, 22, 0.15) 25%, transparent 26%);
+      background-size: 5px 5px;
+      mix-blend-mode: multiply;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 245, 0.75);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px rgba(71, 46, 29, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #ff886f);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 24px rgba(255, 93, 77, 0.24);
+    }
+
+    .mini-note {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section,
+    .cta {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 241, 0.92)),
+        linear-gradient(120deg, rgba(255, 93, 77, 0.08), transparent 38%);
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -72px;
+      top: -72px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 93, 77, 0.24), transparent 68%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 93, 77, 0.1);
+      color: #9d3529;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      max-width: 88%;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 27, 22, 0.08);
+      background: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      font-weight: 600;
+      color: #4f453f;
+    }
+
+    .hero-side {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 245, 239, 0.96), rgba(255, 252, 247, 0.92));
+    }
+
+    .note-card {
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(34, 27, 22, 0.06);
+    }
+
+    .note-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .note-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .note-copy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      padding: 28px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-desc {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .selling-grid,
+    .scene-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .selling-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(34, 27, 22, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .scene-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .scene {
+      position: relative;
+      padding: 20px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,248,242,0.9));
+      border: 1px solid rgba(34, 27, 22, 0.06);
+    }
+
+    .scene small {
+      display: block;
+      color: #ab8a74;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .scene strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .scene span {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+      display: block;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .compare-box {
+      border-radius: 22px;
+      padding: 20px;
+      border: 1px solid rgba(34, 27, 22, 0.07);
+      min-height: 240px;
+    }
+
+    .compare-box.bad {
+      background: linear-gradient(180deg, rgba(122, 92, 77, 0.12), rgba(255,255,255,0.65));
+    }
+
+    .compare-box.good {
+      background: linear-gradient(180deg, rgba(255, 93, 77, 0.12), rgba(255,255,255,0.72));
+    }
+
+    .compare-box h3 {
+      margin: 0 0 14px;
+      font-size: 19px;
+    }
+
+    .compare-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .cta {
+      margin-top: 24px;
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 93, 77, 0.1), rgba(255, 250, 245, 0.95)),
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,245,241,0.92));
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+
+    .cta p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 900px;
+    }
+
+    .command {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #231d18;
+      color: #fff6ef;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .cta-tags {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta-tags span {
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(34, 27, 22, 0.06);
+      font-size: 13px;
+      font-weight: 700;
+      color: #5a4b42;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .grid-two,
+      .selling-grid,
+      .scene-grid,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-lead {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <main class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">教</div>
+        <div>
+          <div>Tutor-Skill</div>
+          <div style="font-size:12px;color:#8b7c72;font-weight:600;">轻量解释型本地 Tutor Skill</div>
+        </div>
+      </div>
+      <div class="mini-note">
+        小红书风格收口版<br />
+        更像收藏卡片，不像规格说明书
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">适合发群 / 发朋友 / 发 README 首屏</div>
+        <h1>一个更像老师，<br />而不是更像题库的本地 Tutor Skill</h1>
+        <p class="hero-lead">
+          Tutor-Skill 面向真实学习场景：解释概念、拆 slide、讲清推导步骤、带你走完一个例子。
+          它不先考你，不先给你排计划，而是先把你当前卡住的那个点讲明白。
+        </p>
+        <div class="hero-points">
+          <span class="chip">解释优先</span>
+          <span class="chip">不给材料不乱猜</span>
+          <span class="chip">本地可装，可直接测</span>
+          <span class="chip">默认更好懂</span>
+          <span class="chip">不主动 quiz</span>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="note-card">
+          <span class="note-tag">为什么值得装</span>
+          <h3 class="note-title">不是再来一个会背定义的 AI</h3>
+          <p class="note-copy">
+            它的目标不是把你变成做题机器，而是先让你真的听懂。
+            你问哪一步，它就先讲哪一步，不顺手把你推进别的 workflow。
+          </p>
+        </div>
+        <div class="note-card">
+          <span class="note-tag">适合谁</span>
+          <h3 class="note-title">适合拿自己的 slide、讲义、推导直接问</h3>
+          <p class="note-copy">
+            没给材料，它会先要材料；给了材料，它再按页、按步、按局部问题解释。
+            这比那种一上来就胡猜的 AI 更稳。
+          </p>
+        </div>
+        <div class="note-card">
+          <span class="note-tag">一句话总结</span>
+          <h3 class="note-title">先讲明白，再谈练习</h3>
+          <p class="note-copy">
+            如果你想先听懂概念、slide 或 derivation，再决定要不要继续练，这个包装方向是对的。
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid-two">
+      <div class="section">
+        <h2 class="section-title">这页主打的 4 个卖点</h2>
+        <p class="section-desc">
+          小红书式包装不是把功能全列完，而是先让人一眼看懂“这东西和普通 AI tutor 到底哪里不一样”。
+        </p>
+        <div class="selling-grid">
+          <article class="card">
+            <h3>先解释，不先考你</h3>
+            <p>先把当前问题讲清楚，不先把对话带进 quiz、学习计划或额外练习。</p>
+          </article>
+          <article class="card">
+            <h3>只讲你现在卡住的这一步</h3>
+            <p>问哪一步，就先解释哪一步，不把局部问题扩成整章串讲。</p>
+          </article>
+          <article class="card">
+            <h3>不给材料不乱猜</h3>
+            <p>没给 slide、excerpt 或推导上下文，就先要材料，不假装自己知道。</p>
+          </article>
+          <article class="card">
+            <h3>本地可装，可直接测</h3>
+            <p>不是概念 demo，已经有安装脚本、smoke test 和可复测用例。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">用户一看就懂的使用场景</h2>
+        <p class="section-desc">
+          小红书感强的页面，场景句一定要像真实用户会说的话，而不是像产品经理列需求。
+        </p>
+        <div class="scene-grid">
+          <article class="scene">
+            <small>Concept</small>
+            <strong>What does this concept mean?</strong>
+            <span>不是只抛定义，而是先把这个词讲成人能听懂的话。</span>
+          </article>
+          <article class="scene">
+            <small>Slide</small>
+            <strong>What is this slide talking about?</strong>
+            <span>先说这一页到底想干什么，再按点拆，不猜没给你的内容。</span>
+          </article>
+          <article class="scene">
+            <small>Derivation</small>
+            <strong>Where does this derivation step come from?</strong>
+            <span>先说明这一步用了哪条规则，再决定要不要往外展开。</span>
+          </article>
+          <article class="scene">
+            <small>Example</small>
+            <strong>Walk me through one example.</strong>
+            <span>用一个小例子把方法带一遍，不直接扔大而全的答案。</span>
+          </article>
+          <article class="scene">
+            <small>Intuition</small>
+            <strong>I understand the definition, but not the intuition.</strong>
+            <span>定义懂了但脑子里没图，这类问题它更应该讲直觉和图感。</span>
+          </article>
+          <article class="scene">
+            <small>Beginner</small>
+            <strong>Explain this to me like I’m seeing it for the first time.</strong>
+            <span>用户没交代背景时，默认按更容易听懂的方式解释。</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">它和普通 Tutor / 问答模型的区别</h2>
+      <p class="section-desc">
+        包装上最该强调的不是“AI Tutor Skill”这个词本身，而是它的回答边界为什么更舒服、更可信。
+      </p>
+      <div class="compare">
+        <div class="compare-box bad">
+          <h3>普通模型常见问题</h3>
+          <ul>
+            <li>一上来先抛定义，再堆一堆知识点。</li>
+            <li>用户只问一小步，它顺手讲成整章。</li>
+            <li>没给 slide 或上下文，也敢猜内容。</li>
+            <li>很容易滑进 quiz、理解检查、练习题模式。</li>
+          </ul>
+        </div>
+        <div class="compare-box good">
+          <h3>Tutor-Skill 的默认边界</h3>
+          <ul>
+            <li>先把眼前这个卡点讲明白，再谈别的。</li>
+            <li>先解释局部，不自动扩成大 workflow。</li>
+            <li>不给材料不乱猜，先要截图、slide 或 excerpt。</li>
+            <li>不主动 quiz、不主动布置计划，除非用户明确要求。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>先本地安装，再拿 4 个问题直接 smoke test</h2>
+      <p>
+        这类页面最后一定要给明确下一步，不然用户只会觉得“看起来不错”，不会真的去测。
+        所以 CTA 不该只是“查看 GitHub”，而是直接告诉他下一步怎么装、怎么试。
+      </p>
+      <div class="command">python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --repo realshady-art/Tutor-Skill --path . --name deeptutor-academic-lite</div>
+      <div class="cta-tags">
+        <span>What does acyclic mean?</span>
+        <span>What is this slide talking about?</span>
+        <span>Where does this derivation step come from?</span>
+        <span>Walk me through one example.</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
