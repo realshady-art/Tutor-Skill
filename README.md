@@ -23,6 +23,11 @@ It does not try to be:
 .
 ├── README.md
 ├── SKILL.md
+├── examples/
+│   └── eval-cases.md
+├── scripts/
+│   ├── install-local.sh
+│   └── smoke-test.sh
 └── references/
     └── distillation-notes.md
 ```
@@ -44,6 +49,20 @@ It also hardens the boundaries that came up in peer review:
 - default to novice-friendly language when user level is unclear
 - explain the local derivation step before expanding
 - only pull in prerequisites when they are actually needed
+
+## Local install
+
+Install the skill into the current Codex environment:
+
+```bash
+bash scripts/install-local.sh
+```
+
+Run one smoke test prompt:
+
+```bash
+bash scripts/smoke-test.sh "What does acyclic mean?"
+```
 
 ## Typical prompts
 
