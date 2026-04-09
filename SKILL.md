@@ -180,3 +180,14 @@ It intentionally omits the heavy platform parts:
 - knowledge-base ingestion
 - notebooks and dashboards
 - deployment and provider setup
+
+## Repository Navigation
+
+Use these files as the default reference set:
+
+- `examples/acyclic.md`
+- `examples/slide-walkthrough.md`
+- `examples/derivation-step.md`
+- `examples/worked-example.md`
+- `references/distillation-notes.md`
+- `references/eval/regression-cases.md`

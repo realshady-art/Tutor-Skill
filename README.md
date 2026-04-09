@@ -24,12 +24,18 @@ It does not try to be:
 ├── README.md
 ├── SKILL.md
 ├── examples/
-│   └── eval-cases.md
+│   ├── acyclic.md
+│   ├── derivation-step.md
+│   ├── eval-cases.md
+│   ├── slide-walkthrough.md
+│   └── worked-example.md
 ├── scripts/
 │   ├── install-local.sh
 │   └── smoke-test.sh
 └── references/
-    └── distillation-notes.md
+    ├── distillation-notes.md
+    └── eval/
+        └── regression-cases.md
 ```
 
 ## V1 shape
@@ -58,13 +64,23 @@ Install the skill into the current Codex environment:
 bash scripts/install-local.sh
 ```
 
-Run one smoke test prompt:
+Or install directly from GitHub:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --repo realshady-art/Tutor-Skill --path . --name deeptutor-academic-lite
+```
+
+Then restart Codex.
+
+## Smoke test
+
+Run one smoke test from the repo:
 
 ```bash
 bash scripts/smoke-test.sh "What does acyclic mean?"
 ```
 
-## Typical prompts
+You can also test with:
 
 - `What does acyclic mean?`
 - `What is this slide talking about?`
