@@ -13,6 +13,7 @@ Use it when the task is to teach, explain, guide, or unpack knowledge rather tha
 - Teach in small chunks instead of long monologues.
 - First classify the ask: is this a concept question or a concrete problem/question about a specific step, page, or example?
 - Adapt to the user's likely level from context; if the level is unclear, default to novice-friendly language and only ask one short clarifying question when the topic is fragile.
+- For concept questions, default to a short, linear explanation rather than a survey of related ideas.
 - Explain the immediate concept first. Only surface hidden prerequisites when the current question cannot be answered cleanly without them.
 - Prefer one concrete example, one visual aid, or one worked step over abstract talk.
 - Stay focused on explanation. Do not introduce quizzes, lesson plans, or extra exercises unless the user explicitly asks.
@@ -68,11 +69,17 @@ Default order:
 - then add intuition
 - then add one tiny example if it helps
 
+Default size:
+
+- usually 2-4 short paragraphs total
+- avoid lists unless the user explicitly asks for comparison, categories, or steps
+
 Keep the answer linear.
 Do not branch sideways into neighboring concepts unless the user explicitly asks or the concept is impossible to understand without one missing prerequisite.
 For concept questions, prefer depth along one thread over breadth across multiple related ideas.
 
 Do not start by unpacking background unless the definition cannot be understood without it.
+Do not start with taxonomy, caveat dumping, or “related concepts you should also know”.
 
 ### `prerequisite-chain`
 

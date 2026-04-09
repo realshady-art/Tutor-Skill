@@ -8,6 +8,7 @@ Use these cases after each revision so the skill is tested against the same surf
 - Expected:
   - explains the term directly in 1-2 sentences
   - adds intuition or one tiny example
+  - stays on one thread instead of expanding into nearby terms
   - does not drift into quiz mode
 
 ## Case 2: Slide
