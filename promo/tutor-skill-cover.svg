@@ -1,0 +1,55 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="120" x2="1090" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6F1"/>
+      <stop offset="0.55" stop-color="#F8EFE7"/>
+      <stop offset="1" stop-color="#F2E4D6"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="250" x2="880" y2="920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6A59"/>
+      <stop offset="1" stop-color="#FF9B72"/>
+    </linearGradient>
+    <filter id="shadow" x="142" y="182" width="916" height="1220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="36"/>
+      <feGaussianBlur stdDeviation="39"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.339 0 0 0 0 0.192 0 0 0 0 0.118 0 0 0 0.14 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1600" rx="64" fill="url(#bg)"/>
+  <circle cx="1030" cy="170" r="220" fill="#FFD8D3" fill-opacity="0.8"/>
+  <circle cx="150" cy="220" r="160" fill="#FFE6C9" fill-opacity="0.92"/>
+  <circle cx="1085" cy="1360" r="180" fill="#FFE5D9" fill-opacity="0.84"/>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="220" width="760" height="1064" rx="44" fill="#FFFCF9"/>
+  </g>
+
+  <rect x="288" y="278" width="184" height="52" rx="26" fill="#FFE2DC"/>
+  <text x="380" y="312" text-anchor="middle" fill="#C94D3B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="700">本地可装</text>
+
+  <text x="288" y="430" fill="#241C17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="800">一个更像老师</text>
+  <text x="288" y="530" fill="#241C17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="800">而不是更像题库的</text>
+  <text x="288" y="630" fill="#241C17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="800">Tutor Skill</text>
+
+  <text x="288" y="722" fill="#6B5D54" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="500">解释概念、拆 slide、讲清推导、带你走完一个例子。</text>
+  <text x="288" y="778" fill="#6B5D54" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="500">不先考你，不先排计划，先把你卡住的点讲明白。</text>
+
+  <rect x="288" y="854" width="624" height="120" rx="30" fill="url(#accent)"/>
+  <text x="336" y="905" fill="white" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700">不给材料不乱猜</text>
+  <text x="336" y="949" fill="white" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="500">没给 slide / excerpt / 推导上下文，就先要材料。</text>
+
+  <rect x="288" y="998" width="624" height="120" rx="30" fill="#FFF2EE" stroke="#F6D5CC"/>
+  <text x="336" y="1049" fill="#2A221D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700">只讲你现在卡住的这一步</text>
+  <text x="336" y="1093" fill="#6B5D54" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="500">不把一小段问题扩成整章串讲，也不滑进 quiz。</text>
+
+  <rect x="288" y="1142" width="624" height="120" rx="30" fill="#FFF8EC" stroke="#F2DFBA"/>
+  <text x="336" y="1193" fill="#2A221D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700">本地可装，可直接 smoke test</text>
+  <text x="336" y="1237" fill="#6B5D54" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="500">不是概念 demo，装完就能拿 4 个问题直接试。</text>
+
+  <text x="288" y="1384" fill="#A48472" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="600">适合发群、发朋友、做首图封面</text>
+</svg>
