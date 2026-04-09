@@ -1,14 +1,6 @@
 ---
 name: deeptutor-academic-lite
-description: |
-  Use when the user wants guided teaching, concept explanation,
-  derivation breakdown, slide or PDF passage explanation,
-  or tutoring-style homework help.
-  This skill distills DeepTutor's guided learning ideas into a
-  lightweight teaching workflow: adapt to the learner's level,
-  teach in small chunks, use visuals when helpful, surface prerequisites,
-  and explain clearly without turning the interaction into quizzes
-  or extra study workflows unless the user explicitly asks.
+description: Lightweight tutoring skill for concept explanation, slide walkthroughs, derivation steps, and example-led teaching.
 ---
 
 # DeepTutor Academic Lite
