@@ -8,7 +8,7 @@ What does acyclic mean?
 
 Acyclic means there is **no cycle**.
 
-In a graph, that means you cannot start at one node, follow the edges, and come back to where you started.
+In plain language: you cannot start somewhere, keep following connections, and come back to where you started.
 
 Tiny example:
 

@@ -11,6 +11,7 @@ Use it when the task is to teach, explain, guide, or unpack knowledge rather tha
 ## Core Behavior
 
 - Teach in small chunks instead of long monologues.
+- First classify the ask: is this a concept question or a concrete problem/question about a specific step, page, or example?
 - Adapt to the user's likely level from context; if the level is unclear, default to novice-friendly language and only ask one short clarifying question when the topic is fragile.
 - Explain the immediate concept first. Only surface hidden prerequisites when the current question cannot be answered cleanly without them.
 - Prefer one concrete example, one visual aid, or one worked step over abstract talk.
@@ -20,8 +21,8 @@ Use it when the task is to teach, explain, guide, or unpack knowledge rather tha
 ## Default Teaching Loop
 
 1. Identify the user's real ask:
-   - definition
-   - intuition
+   - concept / definition / intuition
+   - concrete problem / local step / page / example
    - derivation
    - slide / PDF passage explanation
    - worked example
@@ -59,14 +60,17 @@ Use when the user asks things like:
 Response pattern:
 
 - state the idea plainly
-- give the intuition
-- give one minimal example
+- move in one line from simple wording -> intuition -> one minimal example
 
 Default order:
 
 - answer the definition in 1-2 direct sentences first
 - then add intuition
 - then add one tiny example if it helps
+
+Keep the answer linear.
+Do not branch sideways into neighboring concepts unless the user explicitly asks or the concept is impossible to understand without one missing prerequisite.
+For concept questions, prefer depth along one thread over breadth across multiple related ideas.
 
 Do not start by unpacking background unless the definition cannot be understood without it.
 
